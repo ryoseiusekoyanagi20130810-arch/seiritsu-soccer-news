@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06111f">
+<meta name="description" content="Seiritsu Soccer News｜成立学園サッカーの最新情報をお届けします。">
+<title>Seiritsu Soccer News</title>
+<style>
+:root{
+  --navy:#06111f; --navy2:#0b1b30; --blue:#0b67d1; --cyan:#19b7ff;
+  --white:#fff; --muted:#9eb0c6; --line:rgba(255,255,255,.10);
+  --card:#0c1d32; --gold:#f5c451; --red:#ef3b45;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#f4f7fb;color:#102033}
+a{text-decoration:none;color:inherit}
+.topbar{background:#030a13;color:#9eb0c6;font-size:12px;padding:8px 5vw;text-align:right}
+header{position:sticky;top:0;z-index:20;background:rgba(6,17,31,.94);backdrop-filter:blur(14px);color:white;border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.4px}
+.brand-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#11a8ff,#0751b8);display:grid;place-items:center;font-size:18px;box-shadow:0 8px 24px rgba(0,123,255,.25)}
+.brand small{display:block;color:#79a6d8;font-size:10px;letter-spacing:1.8px;margin-bottom:2px}
+.brand b{font-size:18px}
+nav{display:flex;gap:22px;font-size:14px;font-weight:700}
+nav a{opacity:.78} nav a:hover{opacity:1;color:#69c8ff}
+.hero{background:radial-gradient(circle at 75% 20%,#164c82 0,#0b2340 30%,#06111f 72%);color:white;overflow:hidden}
+.hero-inner{max-width:1180px;margin:auto;padding:72px 20px 76px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.kicker{color:#55c4ff;font-weight:900;letter-spacing:2px;font-size:12px}
+h1{font-size:clamp(42px,7vw,76px);line-height:.98;margin:14px 0 18px;letter-spacing:-3px}
+.hero p{font-size:17px;color:#b9cbe0;line-height:1.8;max-width:650px}
+.cta{display:inline-flex;gap:9px;align-items:center;background:white;color:#06111f;padding:13px 18px;border-radius:999px;font-weight:900;margin-top:10px}
+.score-card{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.22)}
+.score-head{display:flex;justify-content:space-between;color:#8fb1d2;font-size:12px;font-weight:800}
+.match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;text-align:center;gap:12px;padding:28px 0}
+.team{font-weight:900;font-size:20px}.vs{color:#6e8ba9;font-weight:900;font-size:13px}
+.score{font-size:38px;font-weight:1000;letter-spacing:-1px}
+.badge{display:inline-block;font-size:10px;font-weight:900;padding:5px 8px;border-radius:999px;background:#12385d;color:#76d0ff;margin-top:7px}
+.section{max-width:1180px;margin:auto;padding:70px 20px}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:24px}
+.section-head h2{margin:0;font-size:30px;letter-spacing:-1px}
+.section-head span{font-size:12px;color:#75879b;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:white;border:1px solid #e3e9f0;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(18,43,70,.06)}
+.card-body{padding:20px}.tag{font-size:10px;font-weight:900;color:#0b67d1;letter-spacing:.8px}.date{font-size:11px;color:#8a98a8;margin-top:5px}
+.card h3{font-size:18px;line-height:1.45;margin:11px 0 8px}.card p{font-size:13px;color:#667789;line-height:1.7;margin:0}
+.news-visual{height:125px;background:linear-gradient(135deg,#08203a,#0c6dbe);display:grid;place-items:center;color:white;font-weight:1000;font-size:24px;letter-spacing:1px}
+.fixtures{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.fixture{background:var(--navy);color:white;border-radius:18px;padding:20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+.fixture .side:last-child{text-align:right}.fixture .side b{display:block;font-size:17px}.fixture .side small{color:#8da8c2}.fixture .center{text-align:center}.time{font-size:24px;font-weight:1000}.pill{display:inline-block;background:#133553;color:#71cfff;font-size:10px;font-weight:900;padding:5px 8px;border-radius:999px;margin-bottom:5px}
+.info{background:#fff;border:1px solid #e3e9f0;border-radius:18px;padding:24px}
+.two{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{padding:13px 8px;border-bottom:1px solid #e8edf2;text-align:left}.table th{color:#7d8c9d;font-size:11px}
+.sponsor-wrap{background:#071525;color:white}.sponsor-wrap .section-head span{color:#7792ad}
+.sponsors{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sponsor{min-height:140px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.045);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px}
+.sponsor strong{font-size:26px;letter-spacing:1px}.sponsor small{color:#8fa8c0;font-size:11px}
+footer{background:#030a13;color:#7f94ab;padding:34px 20px;text-align:center;font-size:11px;line-height:1.8}
+.mobile-menu{display:none}
+@media(max-width:800px){
+ nav{display:none}.mobile-menu{display:block;color:white;font-size:22px}
+ .hero-inner{grid-template-columns:1fr;padding-top:52px}.score-card{margin-top:8px}
+ .grid,.sponsors,.fixtures,.two{grid-template-columns:1fr}
+ .section{padding:52px 16px}.section-head h2{font-size:25px}
+ .topbar{text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="topbar">SEIRITSU SOCCER NEWS　｜　OFFICIAL WEBSITE</div>
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <div class="brand-mark">SS</div>
+      <div><small>SEIRITSU</small><b>SOCCER NEWS</b></div>
+    </a>
+    <nav>
+      <a href="#news">NEWS</a><a href="#schedule">SCHEDULE</a><a href="#results">RESULTS</a><a href="#sponsors">SPONSORS</a>
+    </nav>
+    <div class="mobile-menu">☰</div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="hero-inner">
+  <div>
+   <div class="kicker">SPECIAL NEWS / 2026.10</div>
+   <h1>成立の今を、<br>もっと熱く。</h1>
+   <p>成立学園のサッカー情報をまとめて発信。中学・高校の試合予定、結果、注目ニュースをリアルタイム感覚でお届けします。</p>
+   <a class="cta" href="#schedule">最新スケジュールを見る　→</a>
+  </div>
+  <div class="score-card">
+   <div class="score-head"><span>NEXT MATCH</span><span>2026.10.18 SUN</span></div>
+   <div class="match">
+    <div class="team">成立学園</div><div class="vs">12:00<br><span class="badge">Aブロック 3回戦</span></div><div class="team">岩倉／<br>都立永山</div>
+   </div>
+   <div style="color:#9eb0c6;font-size:11px;text-align:center">高校サッカー選手権 東京予選</div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="news">
+ <div class="section-head"><h2>Latest News</h2><span>最新ニュース</span></div>
+ <div class="grid">
+  <article class="card"><div class="news-visual">北区 1位突破</div><div class="card-body"><div class="tag">JUNIOR HIGH</div><div class="date">2026.10.08</div><h3>成立学園中、北区新人大会予選を1位突破</h3><p>北区予選を首位で通過し、決勝トーナメント進出が決定。</p></div></article>
+  <article class="card"><div class="news-visual">TOKYO QUALIFIER</div><div class="card-body"><div class="tag">HIGH SCHOOL</div><div class="date">2026.10.08</div><h3>高校サッカー選手権、3回戦の対戦相手が決定</h3><p>10月18日12:00、成立学園が岩倉／都立永山の勝者と対戦。</p></div></article>
+  <article class="card"><div class="news-visual">NEW SPONSORS</div><div class="card-body"><div class="tag">SPECIAL</div><div class="date">2026.10.08</div><h3>新スポンサーを発表</h3><p>MIXI、FIFA、YouTubeがスポンサーとして加わりました。</p></div></article>
+ </div>
+</section>
+
+<section class="section" id="schedule" style="padding-top:10px">
+ <div class="section-head"><h2>Schedule</h2><span>直近予定</span></div>
+ <div class="fixtures">
+  <div class="fixture"><div class="side"><small>新人大会 北区決勝T 1回戦</small><b>成立学園中</b></div><div class="center"><span class="pill">9:30 KICK OFF</span><div>vs</div></div><div class="side"><small>赤スポ</small><b>聖学院</b></div></div>
+  <div class="fixture"><div class="side"><small>練習試合</small><b>成立学園中</b></div><div class="center"><span class="pill">12:00 KICK OFF</span><div>vs</div></div><div class="side"><small>鷲宮総合グラウンド</small><b>立正中</b></div></div>
+  <div class="fixture"><div class="side"><small>高校サッカー選手権 東京予選</small><b>成立学園</b></div><div class="center"><span class="pill">10.18 12:00</span><div>vs</div></div><div class="side"><small>Aブロック 3回戦</small><b>岩倉／都立永山</b></div></div>
+  <div class="fixture"><div class="side"><small>秋季大会</small><b>成立学園中</b></div><div class="center"><span class="pill">10.10 10:45</span><div>vs</div></div><div class="side"><small>公式戦</small><b>赤羽岩淵中</b></div></div>
+ </div>
+</section>
+
+<section class="section" id="results">
+ <div class="section-head"><h2>Results & Topics</h2><span>注目トピック</span></div>
+ <div class="two">
+  <div class="info">
+   <h3 style="margin-top:0">成立学園中学校</h3>
+   <table class="table">
+    <tr><th>大会</th><th>状況</th></tr>
+    <tr><td>新人大会 北区予選</td><td><b>1位突破</b></td></tr>
+    <tr><td>新人大会 北区決勝T</td><td>1回戦 vs 聖学院</td></tr>
+    <tr><td>Tリーグ</td><td>vs 国分寺FA</td></tr>
+   </table>
+  </div>
+  <div class="info">
+   <h3 style="margin-top:0">Seiritsu Soccer News</h3>
+   <p style="line-height:1.9;color:#617286">成立学園サッカーを中心に、試合日程・結果・速報・注目選手などを掲載するニュースサイトです。</p>
+   <p style="font-size:12px;color:#8a98a8">※掲載内容は本サイト内で発表された情報をもとに構成しています。</p>
+  </div>
+ </div>
+</section>
+
+<section class="sponsor-wrap" id="sponsors">
+ <div class="section">
+  <div class="section-head"><h2>Official Sponsors</h2><span>スポンサー</span></div>
+  <div class="sponsors">
+   <div class="sponsor"><strong>from MIXI</strong><small>OFFICIAL SPONSOR</small></div>
+   <div class="sponsor"><strong>FIFA</strong><small>OFFICIAL SPONSOR</small></div>
+   <div class="sponsor"><strong>YouTube</strong><small>OFFICIAL SPONSOR</small></div>
+  </div>
+ </div>
+</section>
+</main>
+<footer>
+  <b style="color:white">SEIRITSU SOCCER NEWS</b><br>
+  © 2026 Seiritsu Soccer News. All rights reserved.<br>
+  本サイトはファンメディア形式の情報サイトです。大会・クラブ・企業等の公式サイトではありません。
+</footer>
+</body>
+</html>
